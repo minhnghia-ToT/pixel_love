@@ -1,0 +1,187 @@
+
+.troll-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at top, #47142f 0%, transparent 45%),
+    #100910;
+  color: #fff;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.troll-card,
+.troll-result {
+  width: min(100%, 620px);
+  padding: 42px;
+  border: 1px solid rgba(255, 125, 190, 0.25);
+  border-radius: 22px;
+  background: rgba(35, 14, 32, 0.94);
+  box-shadow: 0 0 45px rgba(255, 50, 150, 0.12);
+  text-align: center;
+}
+
+.troll-label {
+  color: #ff83c2;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.troll-card h1,
+.troll-result h1 {
+  color: #ffacd5;
+  font-size: clamp(22px, 5vw, 32px);
+  margin: 25px 0 12px;
+}
+
+.troll-subtitle,
+.troll-result-text {
+  color: #cdb8c9;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.troll-progress {
+  width: 100%;
+  height: 7px;
+  background: #48223e;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+.troll-progress div {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4e9b, #ffacd5);
+  transition: width 0.3s ease;
+}
+
+.troll-question-info,
+.troll-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffacd5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.troll-question {
+  margin: 30px 0;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.troll-options {
+  display: grid;
+  gap: 12px;
+}
+
+.troll-option {
+  padding: 16px;
+  border: 1px solid #70435e;
+  border-radius: 12px;
+  background: #30182d;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.troll-option:hover:not(:disabled) {
+  border-color: #ff83c2;
+  background: #51213f;
+  transform: translateY(-2px);
+}
+
+.troll-option.correct {
+  background: #164b35;
+  border-color: #5ce5a1;
+}
+
+.troll-option.wrong {
+  background: #59202c;
+  border-color: #ff657c;
+}
+
+.troll-option:disabled {
+  cursor: default;
+}
+
+.troll-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #542b48;
+}
+
+.troll-footer strong {
+  font-size: 24px;
+}
+
+.troll-score {
+  margin: 25px 0;
+  color: #ff83c2;
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.pixel-surprise {
+  margin: 35px 0;
+  padding: 30px;
+  border-radius: 15px;
+  background: #1c101d;
+  border: 1px dashed #a94c80;
+}
+
+.pixel-character {
+  font-size: 90px;
+  filter: blur(2px);
+  image-rendering: pixelated;
+}
+
+.pixel-heart {
+  font-size: 32px;
+  margin: 8px;
+}
+
+.pixel-surprise h2 {
+  color: #ff83c2;
+  letter-spacing: 4px;
+}
+
+.troll-joke {
+  color: #ffacd5;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.troll-note {
+  color: #cdb8c9;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 15px 0 25px;
+}
+
+.troll-button {
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #e83e91, #ff78b8);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .troll-card,
+  .troll-result {
+    padding: 28px 20px;
+  }
+
+  .troll-question {
+    font-size: 17px;
+  }
+}

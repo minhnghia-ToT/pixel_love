@@ -8,9 +8,17 @@ export default function Home() {
     <main className="love-page new-home">
       <header className="top-header">
         <div className="pixel-logo">♥ PIXEL LOVE ♥</div>
-        <div className="online-status">
-          <span />
-          LOVE IS ONLINE
+
+        <div className="header-right">
+          {/* LOVE QUIZ - TRANG TROLL */}
+          <Link href="/troll" className="quiz-header-link">
+            😈 LOVE QUIZ
+          </Link>
+
+          <div className="online-status">
+            <span />
+            LOVE IS ONLINE
+          </div>
         </div>
       </header>
 
