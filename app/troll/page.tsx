@@ -5,10 +5,8 @@ import { useState } from "react";
 import "./troll.css";
 
 // ==========================================
-// TODO: BẠN TỰ THAY CÂU HỎI VÀ ĐÁP ÁN TẠI ĐÂY
-// correctAnswer phải trùng chính xác với một option.
+// TODO: BẠN CHỈNH CÂU HỎI VÀ LỜI NHẮN TẠI ĐÂY
 // ==========================================
-
 
 const questions = [
   {
@@ -37,12 +35,13 @@ const questions = [
   },
 ];
 
-
 export default function TrollPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
+  const [showWrongMessage, setShowWrongMessage] = useState(false);
+  const [showCorrectMessage, setShowCorrectMessage] = useState(false);
 
   const question = questions[currentQuestion];
 
@@ -51,26 +50,36 @@ export default function TrollPage() {
 
     setSelected(answer);
 
-    const isCorrect = answer === question.correctAnswer;
-
-    if (isCorrect) {
+    if (answer === question.correctAnswer) {
       setScore((prev) => prev + 1);
+      setShowCorrectMessage(true);
+
+      setTimeout(() => {
+        nextQuestion();
+      }, 1200);
+    } else {
+      setShowWrongMessage(true);
+    }
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestion === questions.length - 1) {
+      setFinished(true);
+      return;
     }
 
-    setTimeout(() => {
-      if (currentQuestion === questions.length - 1) {
-        setFinished(true);
-      } else {
-        setCurrentQuestion((prev) => prev + 1);
-        setSelected(null);
-      }
-    }, 800);
+    setCurrentQuestion((prev) => prev + 1);
+    setSelected(null);
+    setShowWrongMessage(false);
+    setShowCorrectMessage(false);
   };
 
   const restartGame = () => {
     setCurrentQuestion(0);
     setScore(0);
     setSelected(null);
+    setShowWrongMessage(false);
+    setShowCorrectMessage(false);
     setFinished(false);
   };
 
@@ -79,7 +88,6 @@ export default function TrollPage() {
       <main className="troll-page">
         <div className="troll-result">
           <p className="troll-label">THE FINAL RESULT</p>
-
           <h1>Chúc mừng em! ❤️</h1>
 
           <div className="troll-score">
@@ -98,6 +106,11 @@ export default function TrollPage() {
 
           <p className="troll-joke">
             Mỗi điểm cộng tương ứng một "nháy" 😉
+          </p>
+
+          <p className="troll-note">
+            Đây là thử thách vui vẻ thôi nhé. Mọi thứ đều cần sự đồng ý
+            và thoải mái của cả hai ❤️
           </p>
 
           <button onClick={restartGame} className="troll-button">
@@ -161,6 +174,30 @@ export default function TrollPage() {
             );
           })}
         </div>
+
+        {/* THÔNG BÁO TRẢ LỜI ĐÚNG */}
+        {showCorrectMessage && (
+          <div className="answer-feedback correct-feedback">
+            <span>🎉</span>
+            <p>Chính xác! Em giỏi lắm ❤️</p>
+            <small>Đang chuyển sang câu tiếp theo...</small>
+          </div>
+        )}
+
+        {/* THÔNG BÁO TRẢ LỜI SAI */}
+        {showWrongMessage && (
+          <div className="answer-feedback wrong-feedback">
+            <span>🥺</span>
+            <p>{question.wrongMessage}</p>
+
+            <button
+              onClick={nextQuestion}
+              className="troll-button"
+            >
+              TIẾP TỤC ❤️
+            </button>
+          </div>
+        )}
 
         <div className="troll-footer">
           <span>Điểm của em ❤️</span>
