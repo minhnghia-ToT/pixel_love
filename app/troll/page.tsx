@@ -100,11 +100,6 @@ export default function TrollPage() {
             Mỗi điểm cộng tương ứng một "nháy" 😉
           </p>
 
-          <p className="troll-note">
-            Đây là thử thách vui vẻ thôi nhé. Mọi thứ đều cần sự đồng ý
-            và thoải mái của cả hai ❤️
-          </p>
-
           <button onClick={restartGame} className="troll-button">
             CHƠI LẠI
           </button>
