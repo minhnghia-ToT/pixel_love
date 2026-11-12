@@ -2019,3 +2019,54 @@ button {
     padding: 0 18px;
   }
 }
+
+/* HEADER RIGHT */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* LOVE QUIZ HEADER LINK */
+.quiz-header-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+
+  color: #ff8fc5;
+  background: rgba(255, 105, 180, 0.07);
+  border: 1px solid rgba(255, 105, 180, 0.4);
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.quiz-header-link:hover {
+  color: #fff;
+  background: #e83e91;
+  border-color: #e83e91;
+  box-shadow: 0 0 18px rgba(255, 80, 160, 0.35);
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .header-right {
+    gap: 10px;
+  }
+
+  .quiz-header-link {
+    padding: 8px 9px;
+    font-size: 8px;
+  }
+
+  .online-status {
+    font-size: 8px;
+  }
+}
